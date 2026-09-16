@@ -25,114 +25,231 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: "Source Serif 4", Georgia, serif; }
+    body { font-family: "Source Serif 4", Georgia, serif; background: #0c0a09; color: #e7e5e4; }
     .display { font-family: "Cormorant Garamond", Georgia, serif; }
-    a.sermon { display: block; }
-    a.sermon:hover h2 { color: #7f1d1d; }
+    .sermon-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      background: #1c1917;
+      border: 1px solid #292524;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    @media (min-width: 640px) {
+      .sermon-card {
+        grid-template-columns: 280px 1fr;
+      }
+    }
+    .sermon-card:hover {
+      border-color: #7f1d1d;
+      transform: translateY(-2px);
+    }
+    .sermon-card:hover .title {
+      color: #fca5a5;
+    }
+    .thumb {
+      position: relative;
+      aspect-ratio: 1200 / 630;
+      background: #292524;
+      overflow: hidden;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .body {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .date {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #b91c1c;
+      margin: 0 0 0.35rem;
+    }
+    .title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      font-weight: 600;
+      color: #fafaf9;
+      margin: 0;
+      transition: color 0.2s ease;
+    }
+    .blurb {
+      margin: 0.5rem 0 0;
+      color: #a8a29e;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
   </style>
 </head>
-<body class="bg-stone-100 text-stone-900">
-  <nav class="sticky top-0 z-20 bg-stone-950 text-stone-100">
+<body>
+  <nav class="sticky top-0 z-20 bg-stone-950/95 backdrop-blur border-b border-stone-800">
     <div class="max-w-3xl mx-auto px-4 py-3 flex justify-between items-baseline">
-      <a href="https://sermon.ahightower.com/" class="display text-lg tracking-wide">High Tower Sermons</a>
-      <span class="text-xs uppercase tracking-widest text-stone-400">sermon.ahightower.com</span>
+      <a href="https://sermon.ahightower.com/" class="display text-lg tracking-wide text-stone-100">High Tower Sermons</a>
+      <span class="text-xs uppercase tracking-widest text-stone-500">sermon.ahightower.com</span>
     </div>
   </nav>
 
-  <header class="bg-stone-950 text-stone-100">
+  <header class="border-b border-stone-800">
     <div class="max-w-3xl mx-auto px-4 py-12">
-      <p class="text-xs uppercase tracking-widest text-red-800 mb-3">Tower District · Fresno</p>
-      <h1 class="display text-4xl md:text-5xl leading-tight">Sermons</h1>
-      <p class="mt-4 text-stone-300 text-lg">Written Word first. Written law second. Eleven pages, newest at the top. Scripture is New Living Translation, reference before the quote.</p>
+      <p class="text-xs uppercase tracking-widest text-red-700 mb-3">Tower District · Fresno</p>
+      <h1 class="display text-4xl md:text-5xl leading-tight text-stone-50">Sermons</h1>
+      <p class="mt-4 text-stone-400 text-lg max-w-2xl">Written Word first. Written law second. Eleven pages, newest at the top. Scripture is New Living Translation, reference before the quote.</p>
     </div>
   </header>
 
   <main class="max-w-3xl mx-auto px-4 py-10">
     <p class="text-sm uppercase tracking-widest text-stone-500 mb-6">11 sermons · September 2026</p>
 
-    <ol class="space-y-0 divide-y divide-stone-300">
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/named-code/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 14, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">The Code Already Named It</h2>
-          <p class="mt-2 text-stone-700">Health and Safety Code sections 11350, 11364, 11377, 11395, 11550, 17920.3, and 5411. The street already has a number. A new noun is not mercy.</p>
+    <ol class="space-y-5 list-none p-0 m-0">
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/named-code/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/named-code/images/og.jpg" alt="The Code Already Named It" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 14, 2026</p>
+            <h2 class="title">The Code Already Named It</h2>
+            <p class="blurb">Health and Safety Code sections 11350, 11364, 11377, 11395, 11550, 17920.3, and 5411. The street already has a number. A new noun is not mercy.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/still-wants/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 14, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">Jesus Still Wants You</h2>
-          <p class="mt-2 text-stone-700">A coworker opened Romans. A woman who had walked into atheism, communism, and a rewritten body prayed in a bedroom anyway.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/still-wants/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/still-wants/images/og.jpg" alt="Jesus Still Wants You" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 14, 2026</p>
+            <h2 class="title">Jesus Still Wants You</h2>
+            <p class="blurb">A coworker opened Romans. A woman who had walked into atheism, communism, and a rewritten body prayed in a bedroom anyway.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/spin-truth/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 13, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">Spin Is Not Light</h2>
-          <p class="mt-2 text-stone-700">Allegation, suggestion, and fact. The Father does not lie. The Son is the truth. The Spirit guides into all truth.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/spin-truth/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/spin-truth/images/og.jpg" alt="Spin Is Not Light" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 13, 2026</p>
+            <h2 class="title">Spin Is Not Light</h2>
+            <p class="blurb">Allegation, suggestion, and fact. The Father does not lie. The Son is the truth. The Spirit guides into all truth.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/millstone/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 13, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">Expose Them</h2>
-          <p class="mt-2 text-stone-700">A charge to the faithful of the High Tower District. Restore law and order. Speak facts in the light.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/millstone/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/millstone/images/og.jpg" alt="Expose Them" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 13, 2026</p>
+            <h2 class="title">Expose Them</h2>
+            <p class="blurb">A charge to the faithful of the High Tower District. Restore law and order. Speak facts in the light.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/turn-live/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 12, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">Take Your Pick</h2>
-          <p class="mt-2 text-stone-700">Health and Safety Code section 11395. The treatment-mandated felony has teeth. The Lord still offers a new heart before the cell door closes.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/turn-live/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/turn-live/images/og.jpg" alt="Take Your Pick" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 12, 2026</p>
+            <h2 class="title">Take Your Pick</h2>
+            <p class="blurb">Health and Safety Code section 11395. The treatment-mandated felony has teeth. The Lord still offers a new heart before the cell door closes.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/stay-away/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 11, 2026 · Courthouse Park</p>
-          <h2 class="display text-3xl leading-tight mt-1">They Will Act Religious</h2>
-          <p class="mt-2 text-stone-700">2 Timothy 3:1-5. Measure P promised clean and safe parks. The written law still names the crime. Looking away is not mercy.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/stay-away/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/stay-away/images/og.jpg" alt="They Will Act Religious" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 11, 2026 · Courthouse Park</p>
+            <h2 class="title">They Will Act Religious</h2>
+            <p class="blurb">2 Timothy 3:1-5. Measure P promised clean and safe parks. The written law still names the crime. Looking away is not mercy.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/expose-them/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 7, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">Call Out the Manipulative Narrator</h2>
-          <p class="mt-2 text-stone-700">A reply to The Sacramento Bee. Nobody is required to treat an opinion page as Scripture.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/expose-them/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/expose-them/images/og.jpg" alt="Call Out the Manipulative Narrator" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 7, 2026</p>
+            <h2 class="title">Call Out the Manipulative Narrator</h2>
+            <p class="blurb">A reply to The Sacramento Bee. Nobody is required to treat an opinion page as Scripture.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/taft-optics/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 7, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">The Speck in Taft</h2>
-          <p class="mt-2 text-stone-700">Satire on optics. The plants in Kern County were real. The named officials were not standing in that aisle.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/taft-optics/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/taft-optics/images/og.jpg" alt="The Speck in Taft" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 7, 2026</p>
+            <h2 class="title">The Speck in Taft</h2>
+            <p class="blurb">Satire on optics. The plants in Kern County were real. The named officials were not standing in that aisle.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/free-light/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 6, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">The Truth Still Sets Free</h2>
-          <p class="mt-2 text-stone-700">Freedom is not a slogan. It is the courage to look at the till, the dais, and the heart.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/free-light/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/free-light/images/og.jpg" alt="The Truth Still Sets Free" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 6, 2026</p>
+            <h2 class="title">The Truth Still Sets Free</h2>
+            <p class="blurb">Freedom is not a slogan. It is the courage to look at the till, the dais, and the heart.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/frontyard/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 6, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">A Front Yard Is Not a Battlefield</h2>
-          <p class="mt-2 text-stone-700">West Berkeley Avenue. Age does not wash blood off a front yard.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/frontyard/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/frontyard/images/og-bible.jpg" alt="A Front Yard Is Not a Battlefield" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 6, 2026</p>
+            <h2 class="title">A Front Yard Is Not a Battlefield</h2>
+            <p class="blurb">West Berkeley Avenue. Age does not wash blood off a front yard.</p>
+          </div>
         </a>
       </li>
-      <li class="py-6">
-        <a class="sermon" href="https://sermon.ahightower.com/parque-sun/">
-          <p class="text-xs uppercase tracking-widest text-red-800">September 6, 2026</p>
-          <h2 class="display text-3xl leading-tight mt-1">Stay Free at the Parque Gate</h2>
-          <p class="mt-2 text-stone-700">Broadway Parque was built for children. A man used the gate as a toilet on Sunday morning. That is not freedom.</p>
+      <li>
+        <a class="sermon-card group" href="https://sermon.ahightower.com/parque-sun/">
+          <div class="thumb">
+            <img src="https://sermon.ahightower.com/parque-sun/images/og.jpg" alt="Stay Free at the Parque Gate" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="body">
+            <p class="date">September 6, 2026</p>
+            <h2 class="title">Stay Free at the Parque Gate</h2>
+            <p class="blurb">Broadway Parque was built for children. A man used the gate as a toilet on Sunday morning. That is not freedom.</p>
+          </div>
         </a>
       </li>
     </ol>
   </main>
 
-  <footer class="border-t border-stone-300 mt-4">
-    <div class="max-w-3xl mx-auto px-4 py-8 text-sm text-stone-600">
+  <footer class="border-t border-stone-800 mt-4">
+    <div class="max-w-3xl mx-auto px-4 py-8 text-sm text-stone-500">
       <p>Scripture quotations on these pages are from the New Living Translation.</p>
       <p class="mt-2">High Tower Sermons. Tower District, Fresno. sermon.ahightower.com</p>
     </div>
